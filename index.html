@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>UFOS</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>WAKE UP SHEEPLE!</h1>
+
+    <div id="encounter-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.min.js"></script>
+    <script type="text/javascript">
+
+      var ufoTable = ["Roswell", "The Pentagon", "Zimbabwe"];
+
+      function render() {
+        for (var i = 0; i < ufoTable.length; i++) {
+          var incident = d3.select("#encounter-view").append("h2");
+          incident.attr("class", "incident")
+              .attr("data-name", ufoTable[i])
+              .attr("data-number", i+1)
+              .text(ufoTable[i]);
+        }
+      }
+      render();
+    </script>
+  </div>
+</body>
+
+</html>
