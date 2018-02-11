@@ -7,15 +7,16 @@ d3.select("#find-date").on("click", function (event) {
 date = date.replace(/(^|\/)0+/g, "$1");
 
 var col = [];
-        for (var i = 0; i < dataSet.length; i++) {
-            for (var key in dataSet[i]) {
-                if (col.indexOf(key) === -1) {
-                    col.push(key);
-                }
-            }
-        }
 
-var table = document.createElement("table");
+for (var i = 0; i < dataSet.length; i++) {
+    for (var key in dataSet[i]) {
+        if (col.indexOf(key) === -1) {
+            col.push(key);
+        }
+    }
+}
+
+var table = document.getElementById("ufo-table");
 
 var tr = table.insertRow(-1); 
 
@@ -32,13 +33,7 @@ for (var i = 0; i < dataSet.length; i++) {
             for (var j = 0; j < col.length; j++)  {
                     var tabCell = tr.insertCell(-1);
                     tabCell.innerHTML = dataSet[i][col[j]];
+            }
         }
     }
-}
-
-
-var divContainer = document.getElementById("encounter-view");
-        divContainer.innerHTML = "";
-        divContainer.appendChild(table);
-
 });
